@@ -7,5 +7,4 @@ function inject(src) {
      
 }
 
-inject( chrome.extension.getURL( '/lib/jquery-1.5.js' ) );
 inject( chrome.extension.getURL( '/agent.js' ) );

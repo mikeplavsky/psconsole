@@ -1,6 +1,6 @@
 {
   "name": "PowerShell Console",
-  "version": "0.0.2",
+  "version": "0.0.3",
   
   "description": "Exposes object ps, which runs Commands against pshttp server",
   
@@ -14,7 +14,7 @@
   "content_scripts": [
   {
       "matches": ["http://*/*"],
-	  "js": [ "lib/jquery-1.5.js", "inspector.js" ]
+	  "js": [ "inspector.js" ]
   }
   ]
   
