@@ -1,0 +1,79 @@
+body, html {padding:0; margin:0; background-color:white;}
+.vbox {display:-webkit-box; -webkit-box-orient:vertical; -webkit-box-align:stretch;}
+
+body {
+
+    font-size: 16px;
+    font-style: arial;    
+    color: #123272;    
+}
+
+#psconsole-header {
+    margin: 0px 8px;
+    margin-top: 5px;
+    font-weight: bold;
+}
+
+#psconsole-box {
+
+    width:100%; 
+    height:100%;
+    min-height:100%;
+    max-height:100%;
+
+    position: absolute;
+    table-layout: fixed;
+    
+    margin:0;
+    padding:0;
+    
+}
+
+#psconsole-result {
+
+    -webkit-box-flex: 1;
+    
+    font-style: monospace;
+    
+    position:relative; 
+    margin: 1px 8px;
+    margin-top: 8px;
+    background-color:rgba(221,234,249,.5); 
+    border:solid #3E5785 1px;
+    -webkit-box-shadow: 0px 0px 3px black; 
+    -webkit-border-radius: 0px;
+    overflow:auto;
+}
+
+#psconsole-input {
+    -webkit-box-flex: 0;
+    margin: 7px 8px 6px;
+}
+
+#psconsole-input-ctrl {
+
+    position:relative; 
+    -webkit-box-flex: 0;
+    width:100%; 
+    margin:0px; 
+    padding-left:15px;
+    border:solid #3E5785 1px; 
+    background-color:#DDEAF9;
+    font-family: inherit; 
+    font-size: 16px;
+    
+    -webkit-box-sizing:border-box; 
+    -webkit-box-shadow: 0px 0px 3px black;
+}
+
+#psconsole-input-marker {
+
+    position:absolute;
+    left:10px;
+    bottom:8px;
+    font-weight:bold;
+    font-size:16px;
+    font-family:courier, monospace;
+    color:#3E5785;
+    
+}

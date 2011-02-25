@@ -2,7 +2,8 @@
   "name": "PowerShell Console",
   "version": "0.0.3.1",
   
-  "description": "Exposes object ps, which runs Commands against pshttp server",
+  "description": "Exposes object ps, which runs Commands against pshttp server",  
+  "background_page": "background.html",
   
    "permissions": [
 	 "http://*/*"
