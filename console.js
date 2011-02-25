@@ -21,14 +21,22 @@ function run(cmd) {
         return;
     }
     
-    $.getJSON( "http://" + srv + ":35/?callback=?", { cmd: cmd } )   
+    var r = '> ' + cmd + "\n Running...";        
+    $( "#psconsole-result" ).text(r);    
     
+    $.getJSON( "http://" + srv + ":35/?callback=?", { cmd: cmd } )   
     
     .done( function(res) {
         
-        var r = '> ' + cmd + "\n" + res;        
+        var r = '> ' + cmd 
+        
+        if (res[0] !== '\n' ) {
+            r += '\n';
+        }
+        
+        r += res;        
+        
         $( "#psconsole-result" ).text(r);
-
         localStorage.command = cmd;    
         
     })
