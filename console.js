@@ -1,18 +1,13 @@
-var srv = null;
-var last_cmd = null;
+var srv = localStorage.server;
+var last_cmd = localStorage.command;
 
-$( "#psconsole-input-ctrl" ).bind( "keydown", function (e) {
+function run(cmd) {
 
-    if (e.keyCode !== 13) {
-        return;
-    } 
-    
-    last_cmd = $( "#psconsole-input-ctrl" ).val();
-    var m = last_cmd.match( "^connect to (.*)$" )
+    var m = cmd.match( "^connect to (.*)$" )
     
     if (m) {
     
-        srv = m[1];
+        localStorage.server = srv = m[1];
         
         $( "#psconsole-header" ).text( "Connected to " + srv );
         $( "#psconsole-input-ctrl" ).val( "" );
@@ -23,16 +18,18 @@ $( "#psconsole-input-ctrl" ).bind( "keydown", function (e) {
     }
     else if (!srv) {
         $( "#psconsole-result" ).text( "Please run this command first: connect to <your server>" );
+        return;
     }
     
-    
-    $.getJSON( "http://" + srv + ":35/?callback=?", { cmd: last_cmd } )   
+    $.getJSON( "http://" + srv + ":35/?callback=?", { cmd: cmd } )   
     
     
     .done( function(res) {
         
-        var r = '> ' + last_cmd + "\n" + res;        
-        $( "#psconsole-result" ).text(r);        
+        var r = '> ' + cmd + "\n" + res;        
+        $( "#psconsole-result" ).text(r);
+
+        localStorage.command = cmd;    
         
     })
     
@@ -42,4 +39,24 @@ $( "#psconsole-input-ctrl" ).bind( "keydown", function (e) {
     
     $( "#psconsole-input-ctrl" ).val( "" );
 
+}
+
+$( "#psconsole-input-ctrl" ).bind( "keydown", function (e) {
+
+    if (e.keyCode !== 13) {
+        return;
+    } 
+    
+    run( $( "#psconsole-input-ctrl" ).val() );
+    
 });
+
+if (srv) {  
+    
+    run( "connect to " + srv );
+    
+    if (last_cmd) {    
+        run (last_cmd );
+    }
+}
+
