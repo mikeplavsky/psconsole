@@ -1,8 +1,8 @@
 {
   "name": "PowerShell Console",
-  "version": "0.0.3.1",
+  "version": "0.1",
   
-  "description": "Exposes object ps, which runs Commands against pshttp server",  
+  "description": "Alt+Shft+P shows PowerShell Console to remote server",  
   "background_page": "background.html",
   
    "permissions": [
