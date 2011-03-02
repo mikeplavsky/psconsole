@@ -32,7 +32,7 @@ function run(cmd) {
     var r = '> ' + cmd + "\n Running...";        
     $( "#psconsole-result" ).text(r);    
     
-    $.getJSON( "http://" + srv + ":35/?callback=?", { cmd: cmd } )   
+    $.get( "http://" + srv + ":35/?callback=func", { cmd: cmd } )   
     
     .done(function(res) {
     
@@ -40,13 +40,7 @@ function run(cmd) {
             res = 'Done.';
         }
         
-        var r = '> ' + cmd 
-        
-        if (res[0] !== '\n' ) {
-            r += '\n';
-        }
-        
-        r += res;        
+        var r = '> ' + cmd + '\n' + res;
         
         $( "#psconsole-result" ).text(r);
         localStorage.command = cmd;
@@ -56,7 +50,7 @@ function run(cmd) {
     })
     
     .fail( function(res) {
-        $( "#psconsole-result" ).text(res);    
+        $( "#psconsole-result" ).text( srv + " doesn't answer. Try to restart pshttp server there." );    
     });    
     
     $( "#psconsole-input-ctrl" ).val( "" );
