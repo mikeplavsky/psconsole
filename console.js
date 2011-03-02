@@ -78,7 +78,8 @@ if (srv) {
     run( "connect to " + srv );
     
     if (last_cmd) {    
-        run (last_cmd );
+        $( "#psconsole-input-ctrl" ).val( last_cmd );
     }
 }
 
+$( "#psconsole-input-ctrl" ).focus();
