@@ -20,7 +20,10 @@ function run(cmd) {
         $( "#psconsole-header" ).text( "Connected to " + srv );
         $( "#psconsole-input-ctrl" ).val( "" );
         $( "#psconsole-result" ).text( "" );
-
+        
+        cmds_hs.add( cmd );
+        run( "get-help" );
+        
         return;
         
     }
