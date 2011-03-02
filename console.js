@@ -34,7 +34,11 @@ function run(cmd) {
     
     $.getJSON( "http://" + srv + ":35/?callback=?", { cmd: cmd } )   
     
-    .done( function(res) {
+    .done(function(res) {
+    
+        if (res == '') {
+            res = 'Done.';
+        }
         
         var r = '> ' + cmd 
         
