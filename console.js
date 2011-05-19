@@ -35,7 +35,7 @@ function run(cmd) {
     var r = '> ' + cmd + "\n Running...";        
     $( "#psconsole-result" ).text(r);    
     
-    $.get( "http://" + srv + ":35/?callback=func", { cmd: cmd } )   
+    $.get( "http://" + srv + ":35/?callback=func&cmd=" + escape(cmd) )   
     
     .done(function(res) {
     

@@ -1,6 +1,6 @@
 {
   "name": "PowerShell Console",
-  "version": "0.1.2.2",
+  "version": "0.1.2.3",
   
   "description": "Alt+Shft+P shows PowerShell Console to remote server",  
   "background_page": "background.html",
